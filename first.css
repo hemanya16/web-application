@@ -1,0 +1,161 @@
+ body {
+      font-family: Arial, sans-serif;
+      max-width: 720px;
+      margin: 20px auto;
+      background: #f9f9f9;
+      padding: 15px 25px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #d6336c;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .emergency-section {
+      background: #ffe6e6;
+      border: 2px solid #d6336c;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 10px #f2a0b1;
+    }
+    .emergency-section h2 {
+      margin-top: 0;
+      color: #d6336c;
+      font-weight: 700;
+      font-size: 1.6em;
+      text-align: center;
+    }
+    .emergency-info {
+      font-size: 1.2em;
+      margin: 15px 0;
+      text-align: center;
+    }
+    input[type="tel"] {
+      font-size: 1.1em;
+      padding: 8px 12px;
+      border-radius: 7px;
+      border: 1px solid #d6336c;
+      width: 200px;
+      margin-right: 10px;
+    }
+    button.emergency-btn {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 7px;
+      background-color: #d6336c;
+      color: white;
+      font-weight: 700;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button.emergency-btn:hover {
+      background-color: #b02759;
+    }
+    .contacts-list {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .contact-item {
+      margin: 10px 0;
+      font-weight: 600;
+      font-size: 1.1em;
+      color: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .contact-call-btn {
+      background-color: #28a745;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .contact-call-btn:hover {
+      background-color: #1e7e34;
+    }
+    .tip {
+      background: white;
+      margin-bottom: 28px;
+      padding: 22px 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ccc;
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .tip img {
+      width: 130px;
+      height: 130px;
+      border-radius: 12px;
+      object-fit: contain;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+    }
+    .tip-content {
+      flex: 1 1 460px;
+    }
+    .tip-title {
+      margin: 0 0 12px 0;
+      color: #d6336c;
+      font-size: 1.5em;
+      font-weight: 700;
+    }
+    .tip-text {
+      margin: 0 0 12px 0;
+      line-height: 1.55;
+      font-size: 1.05em;
+    }
+    .tip-why {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 15px;
+      font-size: 0.95em;
+    }
+    .tip-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-weight: 600;
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 1em;
+      transition: text-decoration 0.25s ease;
+    }
+    .tip-link:hover {
+      text-decoration: underline;
+    }
+    button {
+      padding: 9px 20px;
+      border: none;
+      border-radius: 7px;
+      background-color: #d6336c;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #b02759;
+    }
+    button.learned {
+      background-color: #28a745;
+    }
+ /* Existing styles above... */
+  .shield-icon {
+    color: #0077cc; /* blue shield */
+    font-size: 1.2em;
+    margin-right: 6px;
+  }
+ 
+
+
