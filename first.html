@@ -1,15 +1,408 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Safety Learning App</title>
+  <style>
+    /* styles same as before... [unchanged] */
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 720px;
+      margin: 20px auto;
+      background: #f9f9f9;
+      padding: 15px 25px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #d6336c;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .emergency-section {
+      background: #ffe6e6;
+      border: 2px solid #d6336c;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 10px #f2a0b1;
+    }
+    .emergency-section h2 {
+      margin-top: 0;
+      color: #d6336c;
+      font-weight: 700;
+      font-size: 1.6em;
+      text-align: center;
+    }
+    .emergency-info {
+      font-size: 1.2em;
+      margin: 15px 0;
+      text-align: center;
+    }
+    input[type="tel"] {
+      font-size: 1.1em;
+      padding: 8px 12px;
+      border-radius: 7px;
+      border: 1px solid #d6336c;
+      width: 200px;
+      margin-right: 10px;
+    }
+    button.emergency-btn {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 7px;
+      background-color: #d6336c;
+      color: white;
+      font-weight: 700;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button.emergency-btn:hover {
+      background-color: #b02759;
+    }
+    .contacts-list {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .contact-item {
+      margin: 10px 0;
+      font-weight: 600;
+      font-size: 1.1em;
+      color: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .contact-call-btn {
+      background-color: #28a745;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .contact-call-btn:hover {
+      background-color: #1e7e34;
+    }
+    .tip {
+      background: white;
+      margin-bottom: 28px;
+      padding: 22px 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ccc;
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .tip img {
+      width: 130px;
+      height: 130px;
+      border-radius: 12px;
+      object-fit: contain;
+      border: 1px solid #ddd;
+      flex-shrink: 0;
+    }
+    .tip-content {
+      flex: 1 1 460px;
+    }
+    .tip-title {
+      margin: 0 0 12px 0;
+      color: #d6336c;
+      font-size: 1.5em;
+      font-weight: 700;
+    }
+    .tip-text {
+      margin: 0 0 12px 0;
+      line-height: 1.55;
+      font-size: 1.05em;
+    }
+    .tip-why {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 15px;
+      font-size: 0.95em;
+    }
+    .tip-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-weight: 600;
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 1em;
+      transition: text-decoration 0.25s ease;
+    }
+    .tip-link:hover {
+      text-decoration: underline;
+    }
+    button {
+      padding: 9px 20px;
+      border: none;
+      border-radius: 7px;
+      background-color: #d6336c;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #b02759;
+    }
+    button.learned {
+      background-color: #28a745;
+    }
+ /* Existing styles above... */
+  .shield-icon {
+    color: #0077cc; /* blue shield */
+    font-size: 1.2em;
+    margin-right: 6px;
+  }
+  </style>
+</head>
+
 <body>
-<head><title> Hi</title></head>
-<h1>Hello my dear teammates...!!!!</h1>
-  <h2>Hellooo everyone!!!!</h2>
-  <h1>Hello my dear teammates...!!!!</h1>
-  <h2>This is Hackathon Devops....Learn completely.</h2>
-  <h3>Heartly welcome guysss...</h3>
-  <p>We are here to collaborate on the sake of Adhoc Hackathon.</p>
+  <h1><span class="shield-icon">🛡</span> Women's Safety Learning App</h1>
+
+
+
+
+
+  <h1>🛡️ Women's Safety Learning App</h1>
+
+  <section class="emergency-section" aria-label="Emergency contact section">
+    <h2>Emergency Contacts</h2>
+    <p class="emergency-info">
+      Default emergency number: <a href="tel:911" style="color:#d6336c; font-weight:bold;">911</a>
+    </p>
+    <p style="text-align:center;">
+      Add up to 3 custom emergency contacts:
+    </p>
+    <div style="text-align:center; margin-bottom:15px;">
+      <input type="tel" id="customContact" placeholder="Enter phone number" aria-label="Custom emergency phone number" />
+      <button class="emergency-btn" id="saveContactBtn">Add Contact</button>
+    </div>
+    <div class="contacts-list" id="contactsList" aria-live="polite" aria-relevant="additions"></div>
+  </section>
+
+  <div id="tips"></div>
+
+  <script>
+    const customContactInput = document.getElementById('customContact');
+    const saveContactBtn = document.getElementById('saveContactBtn');
+    const contactsList = document.getElementById('contactsList');
+
+    function loadContacts() {
+      let contacts = JSON.parse(localStorage.getItem('emergencyContacts') || '[]');
+      return contacts;
+    }
+
+    function saveContacts(contacts) {
+      localStorage.setItem('emergencyContacts', JSON.stringify(contacts));
+    }
+
+    function renderContacts() {
+      const contacts = loadContacts();
+      contactsList.innerHTML = '';
+
+      if (contacts.length === 0) {
+        contactsList.innerHTML = '<p>No custom emergency contacts saved.</p>';
+        return;
+      }
+
+      contacts.forEach((contact, index) => {
+        const contactDiv = document.createElement('div');
+        contactDiv.className = 'contact-item';
+
+        contactDiv.innerHTML = `
+          <span>Contact ${index + 1}: ${contact}</span>
+          <button class="contact-call-btn" aria-label="Call contact ${index + 1}">Call</button>
+          <button class="contact-call-btn" aria-label="Remove contact ${index + 1}" style="background:#dc3545;">Remove</button>
+        `;
+
+        contactDiv.querySelector('button:nth-of-type(1)').onclick = () => {
+          window.location.href = 'tel:' + contact;
+        };
+
+        contactDiv.querySelector('button:nth-of-type(2)').onclick = () => {
+          if (confirm('Remove contact ' + contact + '?')) {
+            contacts.splice(index, 1);
+            saveContacts(contacts);
+            renderContacts();
+          }
+        };
+
+        contactsList.appendChild(contactDiv);
+      });
+    }
+
+    saveContactBtn.addEventListener('click', () => {
+      const number = customContactInput.value.trim();
+      if (!number) {
+        alert('Please enter a valid phone number.');
+        return;
+      }
+
+      let contacts = loadContacts();
+      if (contacts.length >= 3) {
+        alert('You can only save up to 3 emergency contacts.');
+        return;
+      }
+
+      if (contacts.includes(number)) {
+        alert('This contact is already saved.');
+        return;
+      }
+
+      contacts.push(number);
+      saveContacts(contacts);
+      renderContacts();
+      customContactInput.value = '';
+      alert('Emergency contact added!');
+    });
+
+    renderContacts();
+
+    const tipsData = [
+      {
+        id: 'tip1',
+        img: 'https://cdn-icons-png.flaticon.com/512/4333/4333607.png',
+        title: 'Stay Aware',
+        text: "Always keep your senses alert when you’re in public spaces. Avoid distractions such as texting or headphones, especially when walking alone or in unfamiliar areas. Being aware lets you notice suspicious behavior early.",
+        why: "Why this matters: Awareness helps you react faster to potential threats and reduces the chance of being caught off-guard.",
+        link: 'https://www.youtube.com/watch?v=8q4yZ-HNYH0'
+      },
+      {
+        id: 'tip2',
+        img: 'https://cdn-icons-png.flaticon.com/512/1995/1995470.png',
+        title: 'Use Your Voice',
+        text: "If you feel threatened, do not hesitate to shout loudly and clearly to attract attention. Phrases like “Help!”, “Fire!”, or “Call the Police!” are proven to deter attackers and alert bystanders who can assist.",
+        why: "Why this matters: Loud vocal resistance increases your chances of escape and receiving help by drawing immediate attention.",
+        link: 'https://www.youtube.com/watch?v=odJ40stj66Y'
+      },
+      {
+        id: 'tip3',
+        img: 'https://cdn-icons-png.flaticon.com/512/263/263106.png',
+        title: 'Practice Self-Defense',
+        text: "Learning basic self-defense moves like wrist releases, palm strikes, and knee kicks can give you confidence and the ability to protect yourself. Regular practice improves muscle memory, so reactions become automatic under stress.",
+        why: "Why this matters: Preparedness boosts your confidence and physical ability to fend off an attacker in emergencies.",
+        link: 'https://www.youtube.com/watch?v=H0v1F9POB0g'
+      },
+      {
+        id: 'tip4',
+        img: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png',
+        title: 'Keep Your Phone Charged',
+        text: "A fully charged phone is crucial when you need to call emergency services or friends. Carry a portable charger if you’re going to be out for long periods, and ensure your emergency contacts are easily accessible.",
+        why: "Why this matters: Access to communication tools can be lifesaving during dangerous situations.",
+        link: 'https://support.google.com/android/answer/6084864?hl=en'
+      },
+      {
+        id: 'tip5',
+        img: 'https://cdn-icons-png.flaticon.com/512/3427/3427261.png',
+        title: 'Share Your Location',
+        text: "Use phone features like “Find My Friends” or location-sharing apps to share your real-time location with trusted contacts, especially when traveling alone. This enables them to check in or alert authorities if needed.",
+        why: "Why this matters: Real-time location sharing increases your safety by ensuring someone knows where you are at all times.",
+        link: 'https://support.apple.com/en-us/HT207361'
+      },
+      {
+        id: 'tip6',
+        img: 'https://cdn-icons-png.flaticon.com/512/2490/2490604.png',
+        title: 'Avoid Isolated Areas',
+        text: "Stick to well-lit and populated routes when walking or commuting. Avoid shortcuts through parks, alleys, or poorly lit streets especially at night.",
+        why: "Why this matters: Attackers often target isolated spots with low visibility and few witnesses.",
+        link: 'https://www.nij.gov/topics/crime/prevention/pages/street-safety.aspx'
+      },
+      {
+        id: 'tip7',
+        img: 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+        title: 'Trust Your Instincts',
+        text: "If something or someone makes you feel uneasy, trust your gut feeling. It’s better to leave or seek help than to ignore that warning.",
+        why: "Why this matters: Your intuition is a powerful early warning system that can prevent harm.",
+        link: 'https://psychcentral.com/health/trust-your-gut'
+      },
+      {
+        id: 'tip8',
+        img: 'https://cdn-icons-png.flaticon.com/512/3089/3089737.png',
+        title: 'Carry a Safety Tool',
+        text: "Consider carrying non-lethal self-defense items like pepper spray, personal alarms, or whistles. Make sure you know how to use them correctly and legally in your area.",
+        why: "Why this matters: Having tools handy can give you extra protection and time to escape.",
+        link: 'https://www.womenshealth.gov/relationships-and-safety/safety-and-emergency/pepper-spray-and-other-self-defense-tools'
+      },
+      {
+        id: 'tip9',
+        img: 'https://cdn-icons-png.flaticon.com/512/3050/3050502.png',
+        title: 'Avoid Sharing Too Much Online',
+        text: "Be careful about sharing your location, routines, or personal information on social media. Predators can use this data to track or target you.",
+        why: "Why this matters: Protecting your privacy online helps keep you safer in real life.",
+        link: 'https://staysafeonline.org/stay-safe-online/protect-your-personal-information/'
+      },
+      {
+        id: 'tip10',
+        img: 'https://cdn-icons-png.flaticon.com/512/1597/1597071.png',
+        title: 'Plan Safe Transportation',
+        text: "Use trusted transportation services, and share your trip details with someone you trust. Avoid hitchhiking or accepting rides from strangers.",
+        why: "Why this matters: Safe transport planning reduces the risk of unsafe situations during travel.",
+        link: 'https://www.rainn.org/articles/ride-safety-tips'
+      }
+    ];
+
+    const tipsContainer = document.getElementById('tips');
+
+    function isLearned(id) {
+      return localStorage.getItem(id) === 'true';
+    }
+
+    function toggleLearned(id, button) {
+      const learned = isLearned(id);
+      if (learned) {
+        localStorage.removeItem(id);
+        button.textContent = 'Mark as Learned';
+        button.classList.remove('learned');
+      } else {
+        localStorage.setItem(id, 'true');
+        button.textContent = 'Learned ✔';
+        button.classList.add('learned');
+      }
+    }
+
+    function renderTips() {
+      tipsContainer.innerHTML = '';
+      tipsData.forEach(tip => {
+        const learned = isLearned(tip.id);
+        const tipEl = document.createElement('div');
+        tipEl.className = 'tip';
+
+        tipEl.innerHTML = `
+          <img src="${tip.img}" alt="${tip.title} icon" />
+          <div class="tip-content">
+            <h3 class="tip-title">${tip.title}</h3>
+            <p class="tip-text">${tip.text}</p>
+            <p class="tip-why">${tip.why}</p>
+            <a href="${tip.link}" target="_blank" rel="noopener" class="tip-link">Watch related video / learn more</a>
+            <br />
+            <button>${learned ? 'Learned ✔' : 'Mark as Learned'}</button>
+          </div>
+        `;
+
+        const button = tipEl.querySelector('button');
+        if (learned) button.classList.add('learned');
+        button.addEventListener('click', () => toggleLearned(tip.id, button));
+
+        tipsContainer.appendChild(tipEl);
+      });
+    }
+
+    renderTips();
+  </script>
+
 </body>
 </html>
-
 
 
 
